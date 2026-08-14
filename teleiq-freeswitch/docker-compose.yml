@@ -1,0 +1,23 @@
+services:
+  freeswitch:
+    image: safarov/freeswitch:latest
+    container_name: teleiq-freeswitch
+
+    restart: unless-stopped
+
+    ports:
+      - "5060:5060/udp"
+      - "5060:5060/tcp"
+      - "5080:5080/udp"
+      - "5080:5080/tcp"
+      - "8021:8021"
+      - "16384-16482:16384-16482/udp"
+
+    volumes:
+      - ./freeswitch/conf:/etc/freeswitch
+      - ./freeswitch/logs:/var/log/freeswitch
+      - /opt/teleiq-audio:/shared
+      - ./mod_audio_stream/extract/usr/lib/freeswitch/mod/mod_audio_stream.so:/usr/lib/freeswitch/mod/mod_audio_stream.so:ro
+
+    stdin_open: true
+    tty: true

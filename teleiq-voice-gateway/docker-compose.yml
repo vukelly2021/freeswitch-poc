@@ -1,0 +1,23 @@
+version: "3.9"
+
+services:
+  gateway:
+    build: .
+    container_name: teleiq-voice-gateway
+
+    ports:
+      - "8080:8080"
+
+    networks:
+      - teleiq
+
+    env_file:
+      - .env
+
+    volumes:
+      - /opt/teleiq-audio:/shared
+
+networks:
+  teleiq:
+    external: true
+    name: teleiq-voice-poc_default

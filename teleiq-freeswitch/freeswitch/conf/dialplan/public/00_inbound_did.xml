@@ -1,0 +1,15 @@
+<include>
+
+  <extension name="teleiq_inbound">
+
+    <condition field="destination_number" expression="^.*$">
+
+      <action application="answer"/>
+
+      <action application="park"/>
+
+    </condition>
+
+  </extension>
+
+</include>

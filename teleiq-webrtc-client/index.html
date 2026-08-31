@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>TeleIQ WebRTC Client</title></head>
+<body>
+<main class="shell"><section class="panel">
+<div class="eyebrow">TeleIQ WebRTC POC</div><h1>Browser Voice Client</h1>
+<p class="subtitle">Register to FreeSWITCH over SIP WebSocket and place an audio-only WebRTC call into the TeleIQ voice pipeline.</p>
+<div class="grid">
+<label>WebSocket URL<input id="wsUrl" value="ws://34.229.5.160:5066"/></label>
+<label>SIP Domain<input id="domain" value="34.229.5.160"/></label>
+<label>Extension / Username<input id="username" value="1001"/></label>
+<label>SIP Password<input id="password" type="password" value="spass95321"/></label>
+<label class="full">Destination<input id="destination" value="9999"/></label>
+</div>
+<div class="actions"><button id="connectBtn">Connect & Register</button><button id="callBtn" disabled>Start Voice</button><button id="muteBtn" disabled>Mute</button><button id="hangupBtn" disabled>Hang Up</button><button id="disconnectBtn" disabled>Disconnect</button></div>
+<div class="statusRow"><span>Status</span><strong id="status">Disconnected</strong></div>
+<audio id="remoteAudio" autoplay></audio>
+<div class="logHeader"><span>Client Log</span><button id="clearLogBtn" class="ghost">Clear</button></div><pre id="log"></pre>
+</section></main>
+<script type="module" src="/src/main.js"></script>
+</body></html>
